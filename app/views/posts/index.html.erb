@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Backbone App</title>
+    <script type="text/javascript">
+      window.eventDispatcher = _.extend({}, Backbone.Events)
+    </script>
+  </head>
+  <body>
+    <h1>Posts</h1>
+
+    <form id="addPost">
+      <h3>New Post</h3>
+      <div>
+        <label for="title">Title</label>
+        <input type="text" id="title" name="title">
+      </div>
+      <div>
+        <label for="body">Body</label>
+        <textarea id="body" name="body"></textarea>
+      </div>
+      <div>
+        <input type="submit" value="Add Post" id="submitPost">
+      </div>
+    </form>
+
+    <table id="postsCollection">
+      <thead>
+        <tr>
+          <td>Title</td>
+          <td>Description</td>
+          <td>Edit</td>
+          <td>Delete</td>
+        </tr>        
+      </thead>
+    </table>
+    <script type="text/javascript">
+      $(function(){
+        postsCollection = new BackboneApi.Collections.Posts()
+        postsCollection.fetch().then(function(){
+          postsView = new BackboneApi.Views.Posts({collection: postsCollection})
+          $('#postsCollection').append(postsView.render().el)
+        })
+        appView = new BackboneApi.Views.App({collection: postsCollection})
+      })
+    </script>
+  </body>
+</html>
