@@ -11,4 +11,5 @@ Welcome to the backbone-api where the intention is to use BackboneJS to its full
 * Replace Rails with Sinatra or Rails API as current Rails app is a full-blown app which come with a lot of excess baggage
 * App optimizations + Syntax improvements (make it more like Rails style)
 * Support for the nested routes
+* Write tests for the JS similar to the RSpecs. Jasmine, Mocha and Chai are some good testing libraries.
 * Implement Twitter Bootstrap along with NodeJS (Advanced Usage)
