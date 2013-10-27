@@ -1,6 +1,6 @@
 class BackboneApi.Views.Post extends Backbone.View
   tagName: "tr",
-  template: JST['posts/index'],
+  template: JST['posts/post'],
   initialize: ->
     @model.on("destroy", @remove, this)
     @model.on("change", @render, this)
@@ -14,4 +14,4 @@ class BackboneApi.Views.Post extends Backbone.View
     answer = confirm("Are you sure?")
     @model.destroy() if answer
   editPost: ->
-    console.log "edit functionality goes here..."
+    eventDispatcher.trigger("edit:post", @model)

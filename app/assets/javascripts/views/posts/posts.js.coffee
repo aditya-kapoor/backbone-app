@@ -1,7 +1,7 @@
 class BackboneApi.Views.Posts extends Backbone.View
   tagName: "tbody",
   initialize: ->
-    @collection.on("sync", @addPost, @)
+    @collection.on("add", @addPost, @)
   render: ->
     @collection.each (post) ->
       postView = new BackboneApi.Views.Post({model: post })
