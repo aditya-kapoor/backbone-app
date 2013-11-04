@@ -14,5 +14,6 @@ class BackboneApi.Views.EditPost extends Backbone.View
     body  = @$el.find('#edit_body').val()
     @model.save({title: title, body: body})
     @cancelForm()
+    Backbone.history.navigate("/", {trigger: true})
   cancelForm: ->
     @remove()

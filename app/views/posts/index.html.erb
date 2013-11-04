@@ -4,18 +4,7 @@
     <title>Backbone App</title>
     <script type="text/javascript">
       window.eventDispatcher = _.extend({}, Backbone.Events)
-      $(function(){
-        postsCollection = new BackboneApi.Collections.Posts()
-        postsCollection.fetch().then(function(){
-          postsView = new BackboneApi.Views.Posts({collection: postsCollection})
-          $('#postsCollection').append(postsView.render().el)
-        })
-        eventDispatcher.on("edit:post", function(post){
-          editPostView = new BackboneApi.Views.EditPost({model: post})
-          $('#editPost').html(editPostView.el)
-        })
-        appView = new BackboneApi.Views.App({collection: postsCollection})
-      })
+      BackboneApi.initialize()
     </script>
   </head>
   <body>
