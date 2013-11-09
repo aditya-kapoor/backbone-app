@@ -11,9 +11,8 @@ window.BackboneApi =
     eventDispatcher.on "index:post", ->
       postsCollection = new BackboneApi.Collections.Posts()
       postsCollection.fetch().then ->
-        postsView = new BackboneApi.Views.Posts({collection: postsCollection})
-        $('#postsCollection').append(postsView.render().el)
-      appView = new BackboneApi.Views.App({collection: postsCollection})
+        postsIndexView = new BackboneApi.Views.PostsIndex({collection: postsCollection})
+        $('#posts').html(postsIndexView.render().el)
     eventDispatcher.on "edit:post", (post) ->
       editPostView = new BackboneApi.Views.EditPost({model: post})
-      $('#editPost').html(editPostView.el)
+      $('#posts').html(editPostView.el)

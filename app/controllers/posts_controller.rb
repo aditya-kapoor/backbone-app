@@ -1,4 +1,6 @@
 class PostsController < ApplicationController
+
+  before_filter :load_post, only: [:show, :update, :destroy]
   # GET /posts
   # GET /posts.json
   def index
@@ -13,8 +15,6 @@ class PostsController < ApplicationController
   # GET /posts/1
   # GET /posts/1.json
   def show
-    @post = Post.find(params[:id])
-
     respond_to do |format|
       format.html # show.html.erb
       format.json { render json: @post }
@@ -56,8 +56,6 @@ class PostsController < ApplicationController
   # PUT /posts/1
   # PUT /posts/1.json
   def update
-    @post = Post.find(params[:id])
-
     respond_to do |format|
       if @post.update_attributes(params[:post])
         format.html { redirect_to @post, notice: 'Post was successfully updated.' }
@@ -72,12 +70,19 @@ class PostsController < ApplicationController
   # DELETE /posts/1
   # DELETE /posts/1.json
   def destroy
-    @post = Post.find(params[:id])
     @post.destroy
-
     respond_to do |format|
       format.html { redirect_to posts_url }
       format.json { head :no_content }
+    end
+  end
+
+  private
+
+  def load_post
+    @post = Post.where(id: params[:id]).first
+    unless @post
+      render json: { error: "Post not found" }, status: :not_found
     end
   end
 end
