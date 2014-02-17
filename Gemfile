@@ -8,5 +8,6 @@ group :assets do
   gem 'uglifier', '>= 1.0.3'
 end
 gem 'backbone-on-rails'
-gem "active_model_serializers"
+gem 'active_model_serializers'
 gem 'jquery-rails'
+gem 'faker'
