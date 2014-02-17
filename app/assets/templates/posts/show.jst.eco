@@ -1,0 +1,12 @@
+<table>
+  <thead>
+    <th>Title</th>
+    <th>Body</th>
+  </thead>
+  <tr>
+    <td><%= @model.get("title") %></td>
+    <td><%= @model.get("body") %></td>
+  </tr>
+</table>
+
+<a href="#" class="cancel">Back to Posts</a>

@@ -1,4 +1,5 @@
 <td><%= @post.get("title") %></td>
 <td><%= @post.get("body") %></td>
+<td><a href="#posts/<%= @post.get("id") %>" class="show">Show</a></td>
 <td><a href="#posts/<%= @post.get("id") %>/edit" class="edit">Edit</a></td>
 <td><a href="#posts/<%= @post.get("id") %>" class="delete">Delete</a></td>

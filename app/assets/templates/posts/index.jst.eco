@@ -4,6 +4,7 @@
     <tr>
       <td>Title</td>
       <td>Description</td>
+      <td>Show</td>
       <td>Edit</td>
       <td>Delete</td>
     </tr>

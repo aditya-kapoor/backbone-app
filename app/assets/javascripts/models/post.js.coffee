@@ -3,7 +3,7 @@ class BackboneApi.Models.Post extends Backbone.Model
   defaults:
     "title": "",
     "body": ""
-  validate: (attrs)->
+  validate: (attrs) ->
     if attrs["title"].trim().length <= 0
       return "title can't be blank";
     if attrs["body"].trim().length <= 0

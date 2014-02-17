@@ -10,10 +10,11 @@ class BackboneApi.Views.Post extends Backbone.View
   render: ->
     @$el.html(@template(post: this.model))
     this
-  deletePost: ->
+  deletePost: (event)->
     answer = confirm("Are you sure?")
     if answer
       @model.destroy()
+      event.preventDefault()
       Backbone.history.navigate("/", {trigger: true})
   editPost: ->
     eventDispatcher.trigger("edit:post", @model)

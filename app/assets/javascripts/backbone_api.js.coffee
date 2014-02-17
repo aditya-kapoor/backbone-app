@@ -1,8 +1,8 @@
 window.BackboneApi =
-  Models: {}
-  Collections: {}
-  Views: {}
-  Routers: {}
+  Models:       {}
+  Collections:  {}
+  Views:        {}
+  Routers:      {}
   initialize: ->
     @bindEvents()
     router = new BackboneApi.Routers.Posts()
@@ -16,3 +16,6 @@ window.BackboneApi =
     eventDispatcher.on "edit:post", (post) ->
       editPostView = new BackboneApi.Views.EditPost({model: post})
       $('#posts').html(editPostView.el)
+    eventDispatcher.on "show:post", (post) ->
+      showPostView = new BackboneApi.Views.ShowPost({model: post})
+      $('#posts').html(showPostView.el)
